@@ -23,7 +23,7 @@ def check_characters(csv_file, headers):  # Check for special characters
             column_no += 1
             if isinstance(word, str):  # Don't see to need check non-string values as they won't contain special values
                 for letter in word:
-                    if re.search('[a-zA-ZÀ-ÿ0-9-_]', letter) is None:  # Include accented characters, -, and _
+                    if re.search('[a-zA-ZÀ-ÿ0-9-_<>=]', letter) is None:  # Include accented characters
                         print('Special character found: ' + letter + ' in word ' + word + ' (' +
                               headers[column_no - 1] + ', line ' + str(line_no) + ')')
                         break
