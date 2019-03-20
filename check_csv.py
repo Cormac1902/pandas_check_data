@@ -15,8 +15,8 @@ def check_null_values(array):        # Check all values are present and that no 
 
 
 def check_characters(csv_file, headers, regex_string):  # Check for special characters
-    for row in csv_file.itertuples(name='Row'):
-        for i, word in enumerate(row):
+    for row in csv_file.itertuples():                   # Iterate over rows as named tuples
+        for i, word in enumerate(row):                  # enumerate for printing out header later
             if isinstance(word, str):  # Don't see need to check non-string values as they won't contain special values
                 for letter in word:
                     if re.search(regex_string, letter) is None:  # Include accented characters
