@@ -17,4 +17,4 @@ def count_records(csv_file):                 # Count records in file
     # if check.check_null_values(csv_file):  # If columns are of unequal lengths, return length of each
     #    return csv_file.count()
     # else:                                  # Otherwise, return length of one column
-        return len(csv_file)
+    return len(csv_file)
