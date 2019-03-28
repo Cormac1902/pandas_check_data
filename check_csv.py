@@ -59,10 +59,10 @@ def print_row_number(row, row_error):  # Prints row number
     return row_error
 
 
-def check_against_array_output(row, row_error, column_obj):
-    if isinstance(column_obj, column.Column):
+def check_against_array_output(row, row_error, column_obj):     # Output for check_against_array
+    if isinstance(column_obj, column.Column):                   # Checks if column object has been passed
         chk = check_against_array(row, column_obj)
-        if chk is not True:
+        if chk is not True:                                     # If check_against_array flags an invalid value
             row_error = print_row_number(row, row_error)
             print('Invalid value found in column ' + column_obj.name + ': ' + chk)
 
