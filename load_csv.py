@@ -1,5 +1,4 @@
 import pandas as pd
-# import check_csv as check
 
 # https://towardsdatascience.com/data-cleaning-with-python-and-pandas-detecting-missing-values-3e9c6ebcf78b
 missing_values = ["N/A", "N/a", "n/A", "n/a", "Na", "nA","na", "---", "--", "-", " ", "?"]
