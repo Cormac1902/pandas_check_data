@@ -33,13 +33,10 @@ def check_characters_against_string(value, regex_string):  # Check for special c
 
 
 def check_against_array(value, array):                  # Check if value exists in array
-    if check_value_null_and_characters(value) is None:  # No need to check if it's already been dealt with
-        if value in array:
-            return True
-        else:
-            return value
-    else:
+    if value in array:
         return True
+    else:
+        return value
 
 
 def check_value_null_and_characters(value):  # Could pass regex here obviously if so desired
@@ -71,5 +68,6 @@ def check_rows(csv_file, headers, column_checks):
         for key in column_checks:
             chk = check_against_array(row[headers.index(key) + 1], column_checks[key])
             if chk is not True:             # If check_against_array flags an invalid value
-                row_error = print_row_number(row, row_error)
-                print('Invalid value found in column ' + key + ': ' + str(chk))
+                if check_value_null_and_characters(row[headers.index(key) + 1]) is None:  # No need to print otherwise
+                    row_error = print_row_number(row, row_error)
+                    print('Invalid value found in column ' + key + ': ' + str(chk))
